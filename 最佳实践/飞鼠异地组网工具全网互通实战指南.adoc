@@ -1,0 +1,349 @@
+@[TOC](飞鼠异地组网工具全网互通实战指南)  
+
+# 前言
+某公司在医药行业处于领先地位，主要业务包括药品研发和销售，并在全球/全国范围内拥有多个子公司。为了满足业务扩张和低成本发展策略的需求，公司希望实现各子公司之间安全、高效、稳定的互联，以便随时随地协同办公。
+
+公司总部已经部署了可道云企业云盘作为文件协同系统，该系统需要频繁使用网络连接进行文件存储、管理、同步和协同办公。由于企业云盘应用对网络连接要求极高，日常高频使用、有上传下载同步等高带宽负载等场景需求，因此直接将该系统映射到公网成本高且安全风险极大。
+
+飞鼠异地组网工具采用先进的网络技术，为各分公司提供了安全通道，使分公司员工能够安全地访问总公司的可道云企业云盘，实现文件的跨区域同步、协同等操作。同时，基于先进的加密技术，公司的分公司不再需要担心公网安全问题，仅需使用飞鼠异地组网工具就可以轻松连接使用，使得访问可道云应用也变得更加高效和便捷。
+
+除了文档协同应用之外，飞鼠还为公司的办公OA、ERP、CRM、内部邮箱等多个系统提供了安全稳定、高效便捷的网络通道，有效提升了公司的协同管理效率。飞鼠异地组网工具在保障网络安全的同时，提高了公司各子公司之间协同办公的效率和便捷性，为公司的业务发展和运营提供了有力支持。
+
+
+# 一、飞鼠异地组网工具介绍
+## 1.1 飞鼠工具简介
+>飞鼠异地组网工具是一款能够突破地域限制、实现高效异地组网的强大工具。它采用标准的OSPF路由协议，具备跨平台兼容性，可以应对大批量数据中心之间的异地组网需求。
+
+
+
+
+## 1.2 飞鼠工具官网
+>飞鼠官方网站：https://www.feishuwg.com/
+
+
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ce5fd30283d44f529da6326a23f927eb.png)
+
+# 二、本次实践介绍
+## 2.1 本次实践前提
+本次实践前提为已经搭建好飞鼠异地组网的初步环境。
+
+
+- 参考博文：
+
+
+[飞鼠异地组网工具基本使用教程](https://blog.csdn.net/jks212454/article/details/134096877)
+
+
+
+## 2.2 本次实践简介
+>1.本次实践为打通两个局域网之间的网络；
+>2.本次实践的两个局域网为本地局域网和阿里云VPC专有网络；
+>3.其中阿里云服务器为中心控制器节点服务器，在上面部署可道云服务；
+>4.本地局域网可以通过云服务器的内网IP访问到可道云服务。
+
+
+
+## 2.3 本次实践环境规划
+
+
+
+|hostname  | IP地址 |操作系统版本|服务器类别|角色|备注
+|--|--|--|--|--|--|
+| cloud | 内网IP：172.22.48.72、公网IP：120.79.233.45 | ubuntu22.04 |阿里云服务器|中心控制器（master）|阿里云VPC专有网络：172.22.48.0/24
+| jeven | 192.168.3.246 |ubuntu22.04|本地服务器|子网节点|本地局域网：192.168.3.0/24
+|docker| 192.168.3.127 |centos 7.6  |本地服务器|本地客户端01|本地局域网：192.168.3.0/24
+|mywin10|192.168.3.168|win10|——|本地客户端02|192.168.3.0/24
+
+
+
+
+# 三、异地组网配置
+## 3.1 进入中心控制器节点管理后台
+>访问地址：https://120.79.233.45:8088/，将IP替换为自己环境中的公网IP地址。
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/c363895817184285b259e5a93819275f.png)
+
+
+
+## 3.2 网卡设置
+>异地组网——路由——网卡设置，选择本地网卡启动，这里是eth0本地网卡。
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/a69e33489ba14c908a5584f383ddab41.png)
+
+
+
+## 3.3 进入子网节点管理后台
+>访问地址：https://192.168.3.246:8088/，将IP替换为自己环境中子网节点IP地址。
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/d819d2c407e44153896fd8676ab0866b.png)
+
+
+
+## 3.4 网卡设置
+>在子网节点管理后台中，选择异地组网——路由——网卡设置，将本地启动保存，这里是ens18本地网卡。
+
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/1d4d934acd6a4b0c96b33d9cf61f549a.png)
+
+
+
+# 四、本地路由器设置工作
+## 4.1 登录本地路由器
+>登录本地局域网的路由器，我这里是华硕路由器，IP地址：192.168.3.254
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/c5787c622f904f41a47d3ea0a619ab6b.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/1fc03ddf003d44c2970aa06fc54a4780.png)
+## 4.2 配置静态路由
+
+>在华硕路由器管理页面，高级设置——内部网络（LAN）中，选择路由器设置，启用静态路由列表，并添加静态路由，添加完毕后，点击“应用本页面设置”，等待路由器重新加载网络。
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/08893ec2e6f74cb3a6c9ed90d30f82e0.png)
+
+# 五、开启流量转发
+## 5.1 中心控制器节点服务器配置工作
+>远程连接中心控制器节点服务器，执行以下命令，开启流量转发。该命令表示将系统默认的转发策略设置为 ACCEPT，即所有的数据包都会被转发。
+
+```bash
+iptables -P FORWARD ACCEPT
+```
+
+
+>列出防火墙规则，发现转发策略已成功设置为 ACCEPT。
+
+
+```bash
+iptables -L -n
+```
+![在这里插入图片描述](https://img-blog.csdnimg.cn/e76a5a4747dd44138018ec05f8278c11.png)
+## 5.2 子网节点服务器配置工作
+>远程连接子网节点服务器，执行以下命令，开启流量转发。该命令表示将系统默认的转发策略设置为 ACCEPT，即所有的数据包都会被转发。
+
+```bash
+iptables -P FORWARD ACCEPT
+```
+>列出防火墙规则，发现转发策略已成功设置为 ACCEPT。
+
+```bash
+iptables -L -n
+```
+![在这里插入图片描述](https://img-blog.csdnimg.cn/6aac075ddd834185bc988b727cc546e1.png)
+# 六、测试网络通信情况
+## 6.1 测试本地客户端01ping阿里云服务器内网IP
+>在本地客户端01：192.168.3.127，ping阿里云内网：172.22.48.72，可以看到已经成功ping通。
+
+
+
+```bash
+ ping 172.22.48.72
+```
+![在这里插入图片描述](https://img-blog.csdnimg.cn/cb1a903387ce426e8ab16e69d6f3b0a7.png)
+备注：想要阿里云的VPC专有网络可以Ping通本地内网：192.168.3.0/24的主机，需要在阿里云的VPC上配置静态路由即可，大家可以自行配置。
+
+
+
+## 6.2 测试本地客户端02ping阿里云服务器内网IP
+>在本地客户端02：192.168.3.168，ping阿里云内网：172.22.48.72，可以看到已经成功ping通。
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/49ba0b419d3b43cfb155419d24c28deb.png)
+
+
+# 七、部署kodbox应用
+
+
+## 7.1 远程连接中心控制器节点服务器
+>远程连接中心控制器节点服务器
+
+```bash
+ssh root@阿里云弹性公网IP地址
+```
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/1a0c7ec3e7bd45e688ea5a5c057ff790.png)
+
+
+## 7.2 创建挂载目录
+>执行以下命令，创建挂载目录。
+
+
+```bash
+mkdir -p /data/kodbox/{db,site}  && cd /data/kodbox
+```
+
+
+
+
+
+
+## 7.3 编辑docker-compose.yaml文件
+>编辑docker-compose.yaml文件，kodbox映射的端口可以自行修改，这里修改为3655。
+
+
+
+```yaml
+version: '3.5'
+
+services:
+  db:
+    image: mariadb
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    volumes:
+      - "./db:/var/lib/mysql"       #./db是数据库持久化目录，可以修改
+      #- "./etc/mysql/conf.d:/etc/mysql/conf.d"       #增加自定义mysql配置
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: kodbox
+      MYSQL_DATABASE: kodbox
+      MYSQL_USER: kodbox
+      MYSQL_PASSWORD: kodbox
+    restart: always
+      
+  app:
+    image: kodcloud/kodbox
+    ports:
+      - 3655:80                       #左边是使用端口，可以修改
+    links:
+      - db
+      - redis
+    volumes:
+      - "./site:/var/www/html"      #./site是站点目录位置，可以修改
+    restart: always
+
+  redis:
+    image: redis:alpine
+    environment:
+      - "TZ=Asia/Shanghai"
+    restart: always
+```
+## 7.4 创建kodbox应用
+>使用docker compsoe，快速创建kodbox应用。
+
+```bash
+ docker compose up -d
+```
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/cb3b460439e643a79b0a55e08c2ce9b1.png)
+
+## 7.5 检查kodbox容器状态
+>检查kodbox相关容器状态，确保容器正常启动。
+
+
+```bash
+root@cloud:/data/kodbox# docker compose ps
+NAME             IMAGE             COMMAND                                                                             SERVICE   CREATED         STATUS         PORTS
+kodbox-app-1     kodcloud/kodbox   "/entrypoint.sh /usr/bin/supervisord -n -c /etc/supervisord.conf"                   app    5 minutes ago   Up 5 minutes   443/tcp, 9000/tcp, 0.0.0.0:3655->80/tcp, :::3655->80/tcp
+kodbox-db-1      mariadb           "docker-entrypoint.sh --transaction-isolation=READ-COMMITTED --binlog-format=ROW"   db    5 minutes ago   Up 5 minutes   3306/tcp
+kodbox-redis-1   redis:alpine      "docker-entrypoint.sh redis-server"                                                 redis    5 minutes ago   Up 5 minutes   6379/tcp
+```
+## 7.6 检查kodbox容器日志
+>检查kodbox容器运行日志，确保kodbox服务正常运行。
+
+```bash
+docker logs kodbox-app-1
+```
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/4c4a3bc561534f38a1c818b596ce921d.png)
+
+
+
+
+# 八、安全设置检查
+## 8.1 防火墙设置
+>检查ufw状态，确保ufw处于关闭状态，如果开启ufw，需要放行3655端口。
+
+
+```bash
+root@cloud:/data/kodbox# systemctl status ufw
+● ufw.service - Uncomplicated firewall
+     Loaded: loaded (/lib/systemd/system/ufw.service; disabled; vendor preset: enabled)
+     Active: inactive (dead)
+       Docs: man:ufw(8)
+
+Oct 28 23:09:51 cloud systemd[1]: Stopping Uncomplicated firewall...
+Oct 28 23:09:51 cloud ufw-init[28623]: Skip stopping firewall: ufw (not enabled)
+Oct 28 23:09:51 cloud systemd[1]: ufw.service: Succeeded.
+Oct 28 23:09:51 cloud systemd[1]: Stopped Uncomplicated firewall.
+```
+
+
+## 8.2 云服务器放行端口
+
+
+>打开阿里云的云服务器安全组管理页面，在入方向上放行TCP/3655端口。如果是阿里云轻量应用服务器，则是安全组替换了防火墙管理，需要在防火墙管理页面，添加规则，放行3655端口。
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/62c7112543a640e2aed064e452c82a95.png)
+
+
+
+# 九、kodbox的初始化配置
+## 9.1 进入初始化配置页面
+>本地windows客户端，打开浏览器，输入地址：http://172.22.48.72:3655/，将IP换为自己环境中中心控制器节点服务器内网地址。
+
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/df4d6fed1fe94d34912d0652d2c83558.png)
+## 9.2 环境检查
+>在kodbox的初始配置页面，环境自动检查成功后，点击“下一步”。
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/895c5c60a5b6498f84aa684633d28985.png)
+## 9.3 数据库配置
+>数据库类型：MySQL 
+>服务器：db 
+>用户名: root 
+>密码：kodbox 
+>数据库名称：kodbox
+>系统缓存类型：Redis
+>服务器：redis
+>端口：6379
+>点击“确定”即可。
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/28bc83d6a3fe4943941641a385828fc3.png)
+
+
+## 9.4 账号设置
+>设置账号admin的密码，自定义设置即可。
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/bcef557c691d4c66b817716fe34cf047.png)
+
+## 9.5 完成初始化配置
+>设置完admin的密码后，会提示“安装成功”，表示当前kodbox应用初始化已完成。
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/c3375cec8bc340d7a4318b603b55b5b3.png)
+
+
+
+# 十、本地访问kodbox应用
+## 10.1 登录kodbox
+
+>访问地址：http://172.22.48.72:3655/#user/login，将IP替换为自己中心控制器节点服务器的内网IP。
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/7a6e094babe84c769fc74bcc3dc06b7b.png)
+## 10.2 访问kodbox应用
+>输入完账号密码后，进入到kodbox首页。
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/b4634e7727d14a38af7844ce58c3a567.png)
+
+# 十一、相关链接
+
+- 相关链接：
+
+
+
+
+
+[飞鼠异地组网工具基本使用教程](https://blog.csdn.net/jks212454/article/details/134096877)
+[飞鼠官方网站](https://www.feishuwg.com/)
