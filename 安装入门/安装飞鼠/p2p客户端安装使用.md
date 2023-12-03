@@ -2,7 +2,7 @@
 title: p2p客户端安装使用
 description: 
 published: true
-date: 2023-12-03T14:15:29.050Z
+date: 2023-12-03T14:16:04.953Z
 tags: 
 editor: markdown
 dateCreated: 2023-11-29T15:04:57.328Z
@@ -29,7 +29,7 @@ services:
       - ALL
     environment:
       token: u3vs9AxkjTvi2bRSNWAmjv1V4cyh8m3ep/CNjDHQWckxf8asJKFCdTaOhcf/DVH2pMfeb+R0wIbQ4HgeHg8v+BBY620AQssIKnpZQX4BTXft6Is3c+Fc3uYUvN5ipSv1LIv8OVLOmaf1vuR+/sKKOQ==  # 此token为客户端配置根据情况修改
-      networkCard： ens160
+      networkCard：ens160
     devices:
       - /dev/net/tun
     restart: always
