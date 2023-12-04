@@ -2,7 +2,7 @@
 title: p2p客户端安装使用
 description: 
 published: true
-date: 2023-12-03T14:17:48.457Z
+date: 2023-12-04T07:12:31.735Z
 tags: 
 editor: markdown
 dateCreated: 2023-11-29T15:04:57.328Z
@@ -35,3 +35,5 @@ services:
     restart: always
     network_mode: host
 ```
+* token此为token参数，由服务端分发
+* networkCard写物理界网卡
