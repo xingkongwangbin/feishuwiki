@@ -2,7 +2,7 @@
 title: p2p客户端安装使用
 description: 
 published: true
-date: 2023-12-04T07:21:10.154Z
+date: 2023-12-04T07:31:19.746Z
 tags: 
 editor: markdown
 dateCreated: 2023-11-29T15:04:57.328Z
@@ -37,3 +37,6 @@ services:
 ```
 * token此为token参数，由服务端分发
 * networkCard写物理界网卡
+
+## 相关可能用到的参数
+`curl localhost:8091/p2p`用于查看其他客户端状态
