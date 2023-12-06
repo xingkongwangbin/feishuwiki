@@ -2,7 +2,7 @@
 title: p2p客户端安装使用
 description: 
 published: true
-date: 2023-12-06T14:35:29.827Z
+date: 2023-12-06T14:39:50.966Z
 tags: 
 editor: markdown
 dateCreated: 2023-11-29T15:04:57.328Z
@@ -37,7 +37,7 @@ services:
     network_mode: host
 ```
 * token此为token参数，由服务端分发
-* networkCard写物理界网卡
-
+* networkCard#适用于多网卡配置，填写物理网卡的名字
+* ospf  #这里写是否启动ospf路由协议，Y启动n关闭
 ## 相关可能用到的参数
 `curl localhost:8091/p2p | jq`用于查看其他客户端状态
