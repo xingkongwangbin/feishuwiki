@@ -2,7 +2,7 @@
 title: p2p客户端安装使用
 description: 
 published: true
-date: 2023-12-13T15:58:46.715Z
+date: 2023-12-13T16:00:02.843Z
 tags: 
 editor: markdown
 dateCreated: 2023-11-29T15:04:57.328Z
@@ -14,9 +14,9 @@ dateCreated: 2023-11-29T15:04:57.328Z
 
 | 作用       | 类型 | 协议        | 备注                               |
 | ---------- | ---- | ----------- | ---------------------------------- |
-| 网页访问    | tcp  | 8091  | api端口                         |
-| Socket通信 | tcp  |      | 密钥交换                       |
-| udp中转   | udp  |        | 中继 |
+| api访问    | tcp  |        | api端口                       |
+| Socket通信 | tcp  |        | 密钥交换                       |
+| udp中转    | udp  |        | 中继                         |
 
 ## 适用于nas，路由器，arm设备，不适合直接运行在win中
 ## compose
