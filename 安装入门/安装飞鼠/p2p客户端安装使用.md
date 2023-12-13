@@ -2,7 +2,7 @@
 title: p2p客户端安装使用
 description: 
 published: true
-date: 2023-12-12T16:01:59.228Z
+date: 2023-12-13T15:38:29.206Z
 tags: 
 editor: markdown
 dateCreated: 2023-11-29T15:04:57.328Z
@@ -30,7 +30,6 @@ services:
     environment:
       token: u3vs9AxkjTvi2bRSNWAmjv1V4cyh8m3ep/CNjDHQWckxf8asJKFCdTaOhcf/DVH2pMfeb+R0wIbQ4HgeHg8v+BBY620AQssIKnpZQX4BTXft6Is3c+Fc3uYUvN5ipSv1LIv8OVLOmaf1vuR+/sKKOQ==  # 此token为客户端配置根据情况修改
       networkCard: ens160 #适用于多网卡配置，填写物理网卡的名字
-      apiPort: 8091              #默认端口8091
     devices:
       - /dev/net/tun
     restart: always
@@ -38,4 +37,4 @@ services:
 ```
 
 ## 相关可能用到的参数
-`curl localhost:8091/p2p | jq`用于查看其他客户端状态
+`docker logs p2p-feishu-1 | grep curl`执行结果命令查看和其他客户端通信状态
