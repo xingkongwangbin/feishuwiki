@@ -2,7 +2,7 @@
 title: p2p客户端安装使用
 description: 
 published: true
-date: 2023-12-18T13:53:50.994Z
+date: 2023-12-18T13:54:28.368Z
 tags: 
 editor: markdown
 dateCreated: 2023-11-29T15:04:57.328Z
@@ -42,3 +42,5 @@ services:
 `curl localhost:38251/p2p | jq`在容器内执行查看和其他端点通信状态
 ### 查看日志
 `docker logs -f p2p-feishu-1`
+### 进入容器
+`docker exec -it p2p-feishu-1 sh`
