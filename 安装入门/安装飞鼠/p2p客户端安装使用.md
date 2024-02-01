@@ -2,7 +2,7 @@
 title: p2p客户端安装使用
 description: 
 published: true
-date: 2024-01-31T02:43:23.903Z
+date: 2024-02-01T02:33:17.979Z
 tags: 
 editor: markdown
 dateCreated: 2023-11-29T15:04:57.328Z
@@ -35,6 +35,8 @@ services:
     environment: # 此token为客户端配置根据情况修改
       token: u3vs9AxkjTvi2bRSNWAmjv1V4cyh8m3ep/CNjDHQWckxf8asJKFCdTaOhcf/DVH2pMfeb+R0wIbQ4HgeHg8v+BBY620AQssIKnpZQX4BTXft6Is3c+Fc3uYUvN5ipSv1LIv8OVLOmaf1vuR+/sKKOQ==  
       networkCard: ens160 #适用于多网卡配置，填写物理网卡的名字
+    volumes:
+      - ./conf:/data/feishu/conf
     devices:
       - /dev/net/tun
     restart: always
