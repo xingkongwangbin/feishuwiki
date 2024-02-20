@@ -2,7 +2,7 @@
 title: p2p客户端安装使用
 description: 
 published: true
-date: 2024-02-01T02:34:08.233Z
+date: 2024-02-20T13:12:35.388Z
 tags: 
 editor: markdown
 dateCreated: 2023-11-29T15:04:57.328Z
@@ -25,8 +25,9 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh --mirror Aliyun
 ```
 ## compose
-`mkdir p2p`
-`vi compose.yaml`
+* `mkdir p2p`
+* `vi compose.yaml`
+* compose安装方式不同启动方式不同老版本`docker-compose up -d`新版本用`docker compose up -d`
 ```yaml
 version: "3"
 services:
