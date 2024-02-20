@@ -2,7 +2,7 @@
 title: p2p客户端安装使用
 description: 
 published: true
-date: 2024-02-20T13:12:35.388Z
+date: 2024-02-20T13:13:00.939Z
 tags: 
 editor: markdown
 dateCreated: 2023-11-29T15:04:57.328Z
@@ -27,7 +27,7 @@ sh get-docker.sh --mirror Aliyun
 ## compose
 * `mkdir p2p`
 * `vi compose.yaml`
-* compose安装方式不同启动方式不同老版本`docker-compose up -d`新版本用`docker compose up -d`
+
 ```yaml
 version: "3"
 services:
@@ -45,7 +45,7 @@ services:
     restart: always
     network_mode: host
 ```
-
+* compose安装方式不同启动方式不同老版本`docker-compose up -d`新版本用`docker compose up -d`
 ## 相关可能用到的参数
 ### 查看连接状态
 `docker logs p2p-feishu-1 | grep curl`执行结果命令查看和其他客户端通信状态
