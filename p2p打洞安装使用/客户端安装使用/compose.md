@@ -25,6 +25,7 @@ services:
     image: registry.cn-qingdao.aliyuncs.com/feishuwg/p2p:latest
     cap_add:
       - ALL
+    privileged: true
     environment: # 此token为客户端配置根据情况修改
       token: u3vs9AxkjTvi2bRSNWAmjv1V4cyh8m3ep/CNjDHQWckxf8asJKFCdTaOhcf/DVH2pMfeb+R0wIbQ4HgeHg8v+BBY620AQssIKnpZQX4BTXft6Is3c+Fc3uYUvN5ipSv1LIv8OVLOmaf1vuR+/sKKOQ==  
       networkCard: ens160 #适用于多网卡配置，填写物理网卡的名字
