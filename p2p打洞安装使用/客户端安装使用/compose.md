@@ -32,6 +32,10 @@ services:
       - ./conf:/data/feishu/conf
     devices:
       - /dev/net/tun
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
     restart: always
     network_mode: host
 ```
