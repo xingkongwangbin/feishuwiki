@@ -40,10 +40,19 @@ services:
     network_mode: host
 ```
 * compose安装方式不同启动方式不同老版本`docker-compose up -d`新版本用`docker compose up -d`
+## 通过浏览器访问
+* ip地址+port:9091  
+
+### 类似如下地址
+`http://192.168.3.104:9091`
+* 默认无密码需要打开网页去单独设置密码
+### 网页如下
+![](images/2024-03-10-21-27-16.png)
+
 ## 相关可能用到的参数
 ### 查看连接状态
 `docker logs p2p-feishu-1 | grep curl`执行结果命令查看和其他客户端通信状态
-`curl localhost:port/p2p | jq`类似命令在容器内执行查看和其他端点通信状态
+`curl localhost:9091/p2p | jq`类似命令在容器内执行查看和其他端点通信状态
 ### 查看日志
 `docker logs -f p2p-feishu-1`
 ### 进入容器
