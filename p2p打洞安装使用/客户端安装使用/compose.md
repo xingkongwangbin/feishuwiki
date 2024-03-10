@@ -22,7 +22,7 @@ sh get-docker.sh --mirror Aliyun
 version: "3"
 services:
   feishu:
-    image: registry.cn-qingdao.aliyuncs.com/feishuwg/p2p:latest
+    image: registry.cn-qingdao.aliyuncs.com/feishuwg/p2p:v2.2
     cap_add:
       - ALL
     privileged: true

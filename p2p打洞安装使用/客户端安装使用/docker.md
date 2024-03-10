@@ -11,7 +11,7 @@ docker run -d \
   --device=/dev/net/tun \
   --restart=always \
   --network=host \
-  registry.cn-qingdao.aliyuncs.com/feishuwg/p2p:2.2
+  registry.cn-qingdao.aliyuncs.com/feishuwg/p2p:v2.2
 ```
 ## 通过浏览器访问
 * ip地址+port:9091  
