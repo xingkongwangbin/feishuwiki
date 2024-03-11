@@ -1,3 +1,13 @@
+---
+title: docker
+description: 
+published: true
+date: 2024-03-11T06:30:43.865Z
+tags: 
+editor: markdown
+dateCreated: 2024-03-02T11:19:02.375Z
+---
+
 # docker一键启动方式
 ## 创建文件夹
 * `mkdir p2p`
@@ -6,7 +16,7 @@
 docker run -d \
   --name feishu-p2p \
   --cap-add=ALL \
-  privileged: true \
+  --privileged: true \
   -v $(pwd)/conf:/data/feishu/conf \
   --device=/dev/net/tun \
   --restart=always \
