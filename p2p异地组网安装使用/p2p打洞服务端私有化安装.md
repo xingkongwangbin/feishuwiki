@@ -70,6 +70,7 @@ services:
     network_mode: host
     volumes:
       - /data/feishu/feishudb:/feishu/db/
+      - /data/feishu/data:/feishu/data/
       - /lib/modules:/lib/modules
 ```
 
