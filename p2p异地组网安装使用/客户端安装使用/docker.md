@@ -17,7 +17,8 @@ docker run -d \
   --name feishu-p2p \
   --cap-add=ALL \
   --privileged=true \
-  -v $(pwd)/conf:/data/feishu/conf \
+  -v $(pwd)/conf:/data/conf/ \
+  -v $(pwd)/logs:/data/logs/ \
   --device=/dev/net/tun \
   --restart=always \
   --network=host \

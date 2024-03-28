@@ -28,14 +28,17 @@ services:
     privileged: true
     environment: # 此token为客户端配置根据情况修改
       token: u3vs9AxkjTvi2bRSNWAmjv1V4cyh8m3ep/CNjDHQWckxf8asJKFCdTaOhcf/DVH2pMfeb+R0wIbQ4HgeHg8v+BBY620AQssIKnpZQX4BTXft6Is3c+Fc3uYUvN5ipSv1LIv8OVLOmaf1vuR+/sKKOQ==  
+      log_able: false
     volumes:
-      - ./conf:/data/feishu/conf
+      - ./conf:/data/conf/
+      - ./logs:/data/logs/
     devices:
       - /dev/net/tun
     logging:
       driver: "json-file"
       options:
         max-size: "50m"
+        max-file: "10"
     restart: always
     network_mode: host
 ```

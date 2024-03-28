@@ -47,6 +47,8 @@ services:
       POSTGRES_DB: feishuwg
       POSTGRES_PASSWORD: m7576WDx8dunrjU2
       POSTGRES_USER: feishuuser
+      TZ: Asia/Shanghai #TZ表示服务器所在的时区
+      PGTZ: Asia/Shanghai #而PGTZ表示数据库使用的时区。
     logging:
       driver: "none"
     restart: unless-stopped
@@ -92,3 +94,37 @@ https://ip:8088
 * 备注：备注
 * 区域ip段：虚拟ip地址段，类似`10.8.5.0/24`
 #
+
+
+
+# 内核优化
+vi /etc/security/limits.conf
+* soft nofile 1024
+* hard nofile 65535
+
+vi /etc/pam.d/login
+session required /lib/security/pam_limits.so
+#如果是64bit系统的话，应该为 :
+session required /lib64/security/pam_limits.so
+
+vi /etc/sysctl.conf
+```
+net.ipv4.ip_local_port_range = 1024 65535
+net.core.rmem_max=16777216
+net.core.wmem_max=16777216
+net.ipv4.tcp_rmem=4096 87380 16777216
+net.ipv4.tcp_wmem=4096 65536 16777216
+net.ipv4.tcp_fin_timeout = 10
+net.ipv4.tcp_timestamps = 0
+net.ipv4.tcp_window_scaling = 0
+net.ipv4.tcp_sack = 0
+net.core.netdev_max_backlog = 30000
+net.ipv4.tcp_no_metrics_save=1
+net.core.somaxconn = 262144
+net.ipv4.tcp_syncookies = 0
+net.ipv4.tcp_max_orphans = 262144
+net.ipv4.tcp_max_syn_backlog = 262144
+net.ipv4.tcp_synack_retries = 2
+net.ipv4.tcp_syn_retries = 2
+```
+查看当前有多少个TCP连接到当前服务器命令:netstat -antp |grep -i est |wc -l
