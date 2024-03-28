@@ -27,7 +27,7 @@ services:
       - ALL
     privileged: true
     environment: # 此token为客户端配置根据情况修改
-      token: u3vs9AxkjTvi2bRSNWAmjv1V4cyh8m3ep/CNjDHQWckxf8asJKFCdTaOhcf/DVH2pMfeb+R0wIbQ4HgeHg8v+BBY620AQssIKnpZQX4BTXft6Is3c+Fc3uYUvN5ipSv1LIv8OVLOmaf1vuR+/sKKOQ==  
+      token: #此处填写你的token,或者打开网页访问填写也可
       log_able: false
     volumes:
       - ./conf:/data/conf/
