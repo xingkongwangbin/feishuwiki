@@ -35,7 +35,7 @@ spec:
         imagePullPolicy: IfNotPresent # 如果镜像已存在于本地则不拉取
         env: # 定义环境变量
         - name: token # 飞鼠的token，可以填写也可以删除去网页填写
-          value: "PCSYrvOBqJmC/KtCnUYjoLBzEeE/iBeGdQsteRRJD//CEK0vrc643FrNwidp+UrIbAuAaK1byyXQMtwtuv7wf6QAPnGIgJoBhBhL74EtdSRaqma5xXDvs3zGGiedZbPUVbfNPc/XPETVc+gAnvlckbU1Y19y/11jSmUNrwDcVEQ="
+          value: "PCSYrvOBqJmC/KtCnUYjoLBzEeE/iBeGdQsteRRJD//CEK0vrc643FrNwidp+UrIbAuAaK1byyXQMtwtuv7wf6QAPnGIgJ1BhBhL24EtdSRaqma5xXDvs3zGGiedZbPUVbfNPc/XPETVc+gAnvlckbU1Y19y/11jSmUNrwDcVEQ="
         ports:
         - containerPort: 9091 # 容器监听的端口为9091
         resources: # 定义资源请求和限制
