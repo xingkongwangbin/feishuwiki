@@ -1,6 +1,16 @@
+---
+title: compose
+description: 
+published: true
+date: 2024-06-08T14:12:02.637Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-28T07:18:54.677Z
+---
 
 
-# compose文件
+
+# Compose方式部署NAT打洞客户端
 
 | 作用       | 类型 | 协议        | 备注                               |
 | ---------- | ---- | ----------- | ---------------------------------- |
