@@ -2,13 +2,12 @@
 title: p2p异地组网更新日志
 description: p2p异地组网更新日志
 published: true
-date: 2024-06-08T14:39:40.625Z
+date: 2024-06-08T14:40:09.053Z
 tags: 
 editor: markdown
 dateCreated: 2024-03-21T15:59:28.785Z
 ---
 
--------------
 # 更新日志
 ## 2024年6月02日
 支持mac平台
