@@ -2,7 +2,7 @@
 title: 通过iso方式安装飞鼠
 description: 通过iso方式安装飞鼠
 published: true
-date: 2023-10-28T17:52:24.686Z
+date: 2024-06-08T13:28:36.614Z
 tags: 
 editor: markdown
 dateCreated: 2023-10-28T17:52:24.686Z
