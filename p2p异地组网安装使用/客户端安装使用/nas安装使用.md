@@ -25,9 +25,14 @@ ls /dev/net/tun
 mkdir p2p
 # 切换到这个文件夹  
 cd p2p
+# 创建映射到容器内的文件
+mkdir conf
+mkdir logs
 # 执行这两个下载分别是下载配置文件和更新文件
 wget https://dow.feishunet.com/p2p/docker-compose.yaml
 wget https://dow.feishunet.com/p2p/st.sh
+
+
 ```
 ## 启动
 ```bash
@@ -41,3 +46,10 @@ sh st.sh
 ## 创建tun网卡
 **套件安装qvpn**  
 **之后按照群晖的docker-compose安装即可**
+
+
+# 疑难解答
+## 启动之后无法访问网页但是容器正常 
+> 找到对应的端口号，然后查看防火墙  
+
+** `netstat -lntp | grep feishu` **
