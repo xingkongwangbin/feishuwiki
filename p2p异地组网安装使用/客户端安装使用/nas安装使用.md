@@ -1,5 +1,6 @@
 # 群晖
 ## ssh连接到群晖命令行
+## 一定要管理员账户
 ## 创建tun网卡
 ```bash
 # 创建一个持久的 TUN
@@ -20,14 +21,19 @@ ls /dev/net/tun
 ```
 ## docker-compose 安装
 ```bash
+# 找一个自己经常放东西的目录，建议放到数据盘，创建一个文件夹叫p2p
 mkdir p2p
+# 切换到这个文件夹  
 cd p2p
+# 执行这两个下载分别是下载配置文件和更新文件
 wget https://dow.feishunet.com/p2p/docker-compose.yaml
 wget https://dow.feishunet.com/p2p/st.sh
 ```
 ## 启动
 ```bash
+# 给st文件启动权限
 chmod +x st.sh
+# 启动飞鼠docker compose
 sh st.sh
 ```
 
