@@ -2,7 +2,7 @@
 ## ssh连接到群晖命令行
 ## 创建tun网卡
 ```bash
-创建一个持久的 TUN
+# 创建一个持久的 TUN
 
 #快捷编写脚本到路径: /usr/local/etc/rc.d/tun.sh 这将使得 /dev/net/tun 在启动时调用
 
