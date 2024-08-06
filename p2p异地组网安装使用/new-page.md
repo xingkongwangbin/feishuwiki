@@ -2,7 +2,7 @@
 title: Saas公有化部署指南
 description: 
 published: true
-date: 2024-08-06T10:07:39.912Z
+date: 2024-08-06T11:00:57.454Z
 tags: 
 editor: markdown
 dateCreated: 2024-08-06T10:07:39.912Z
@@ -27,3 +27,15 @@ dateCreated: 2024-08-06T10:07:39.912Z
 对于飞鼠NAT组网的非中心控制器部署模式做出系统的部署教程。客户端可覆盖至Linux、Macos、Windows、IOS与Android。本文档主要介绍Linux与Windows的部署操作。
 ## 1.2支持硬件
 支持各大主流平台，详细测试如下。
+| 系统 | 典型配置 | 是否支持飞鼠 | 测试问题 |
+|:-----:|:-----:|:-----:|:-----:|
+| Arm Linux  | 4C/8C 2G/1G  | 是  | 无 |
+| X86 Linux  | 无  | 是  | 无 |
+| Pve Lxc Linux | 无 | 否 | 半虚拟化网卡存在问题，无法启动 |
+| Mips Linux | 3A3000/4000 | 否 | 不定时掉线 |
+| LoongArch Linux | 3A5000 | 是 | 无 |
+| IOS | 无 | 是 | 仅支持客户端 |
+| 安卓 | 无 | 是 | 仅支持客户端 |
+| 飞腾/鲲鹏/海思 | FT2000/920/Hi1616 | 是 | 无 |
+| Windows | 无 | 是 | 仅支持客户端 |
+| OpenWrt | MT7988 | 是 | 视内存而定 |
