@@ -2,7 +2,7 @@
 title: Saas公有化部署指南
 description: 
 published: true
-date: 2024-08-06T11:00:57.454Z
+date: 2024-08-06T11:08:31.733Z
 tags: 
 editor: markdown
 dateCreated: 2024-08-06T10:07:39.912Z
@@ -39,3 +39,24 @@ dateCreated: 2024-08-06T10:07:39.912Z
 | 飞腾/鲲鹏/海思 | FT2000/920/Hi1616 | 是 | 无 |
 | Windows | 无 | 是 | 仅支持客户端 |
 | OpenWrt | MT7988 | 是 | 视内存而定 |
+## 1.3支持系统
+需基于Debian10及以后内核Linux部署，不支持半虚拟化如lxc类容器内嵌套部署。
+
+## 二.SAAS公有化部署
+# 2.1前提准备
+针对Ubuntu类系统，需要关闭或设置防火墙通行。
+执行以下命令关闭防火墙
+`sudo systemctl disable ufw.service`
+针对Debian类系统，无需进行特殊操作。
+对于VPS部署用户，参照VPS服务商的防火墙放行。
+放行端口如下
+| 作用 | 类型 | 端口 | 备注 |
+|:-----:|:-----:|:-----:|:-----:|
+| 网页通信 | TCP | 9091 | 用于Webui配置 |
+安装Docker
+`wget https://dow.feishuwg.com/get-docker.sh
+sudo sh get-docker.sh --mirror Aliyun`
+安装完成后查询Docker版本
+`docker version`
+返回信息如下
+![返回信息](http://zhengran.top:40061/i/2024/08/06/paht5q.png)
