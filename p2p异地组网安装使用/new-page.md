@@ -2,7 +2,7 @@
 title: Saas公有化部署指南
 description: 
 published: true
-date: 2024-08-06T11:41:42.339Z
+date: 2024-08-06T11:42:34.660Z
 tags: 
 editor: markdown
 dateCreated: 2024-08-06T10:07:39.912Z
@@ -99,8 +99,8 @@ dateCreated: 2024-08-06T10:07:39.912Z
 ## 2.5 常见错误处理方法
 类似于输入ip:9091后无法访问的，可能是部署主机存在端口占用情况。
 飞鼠针对此种情况会自动处理，即选择一个未使用端口进行映射，查询方法如下。
-sudo docker ps -a #查看所有容器
-sudo docker logs -f p2p-feishu-1 #p2p-feishu-1为输出的实际容器名称
+`sudo docker ps -a` #查看所有容器
+`sudo docker logs -f p2p-feishu-1` #p2p-feishu-1为输出的实际容器名称
 输出如下
 ![pahuuz.png](/pahuuz.png)
 此种情况下，即启用了10066端口。
