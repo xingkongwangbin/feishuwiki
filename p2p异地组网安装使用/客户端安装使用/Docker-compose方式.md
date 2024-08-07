@@ -41,8 +41,9 @@ bash st.sh
 
 ## 相关可能用到的参数
 ### 查看连接状态
-`docker logs p2p-feishu-1 | grep curl`执行结果命令查看和其他客户端通信状态
-`curl localhost:9091/p2p | jq`类似命令在容器内执行查看和其他端点通信状态
+> 执行结果命令查看和其他客户端通信状态
+`docker logs p2p-feishu-1 | grep curl`
+`curl localhost:9091/p2p | jq`
 ### 查看日志
 `docker logs -f p2p-feishu-1`
 ### 进入容器
