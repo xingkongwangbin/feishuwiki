@@ -10,7 +10,7 @@ dateCreated: 2024-02-28T07:18:54.677Z
 
 
 
-# Compose方式部署NAT打洞客户端
+# Compose方式部署飞鼠客户端
 
 | 作用       | 类型 | 协议        | 备注                               |
 | ---------- | ---- | ----------- | ---------------------------------- |
@@ -48,3 +48,10 @@ bash st.sh
 `docker logs -f p2p-feishu-1`
 ### 进入容器
 `docker exec -it p2p-feishu-1 sh`
+
+# 更新飞鼠客户端
+> 不需要停止容器，单独执行这个脚本即可
+```shell
+cd /root/p2p-feishu # 切换到自己的compose运行目录
+bash st.sh #等待执行完成
+```
