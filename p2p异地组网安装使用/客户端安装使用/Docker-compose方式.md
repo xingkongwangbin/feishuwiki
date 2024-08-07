@@ -16,43 +16,20 @@ dateCreated: 2024-02-28T07:18:54.677Z
 | ---------- | ---- | ----------- | ---------------------------------- |
 | api访问    | tcp  |        |                        |
 
-## 适用于nas，路由器，arm设备，不适合直接运行在win中
-## 安装docker 
+## 适用于nas，路由器，arm设备，不适合直接运行在win,macos中
+## 一键脚本安装
 需要提前安装docker、docker-compose;
 ```bash
-# 执行安装
-curl -fsSL https://get.docker.com -o get-docker.sh
+# 执行安装docker
+curl -fsSL https://dow.feishunet.com/get-docker.sh -o get-docker.sh
 sh get-docker.sh --mirror Aliyun
+# 下载运行compose以及脚本
+wget https://dow.feishunet.com/p2p/docker-compose.yaml
+wget https://dow.feishunet.com/p2p/st.sh
+# 一键运行
+bash st.sh
 ```
-## compose
-* `mkdir p2p`
-* `vi compose.yaml`
 
-```yaml
-version: "3"
-services:
-  feishu:
-    image: registry.cn-qingdao.aliyuncs.com/feishuwg/p2p:v2.2
-    cap_add:
-      - ALL
-    privileged: true
-    environment: # 此token为客户端配置根据情况修改
-      token: #此处填写你的token,或者打开网页访问填写也可
-      log_able: false
-    volumes:
-      - ./conf:/data/conf/
-      - ./logs:/data/logs/
-    devices:
-      - /dev/net/tun
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "50m"
-        max-file: "10"
-    restart: always
-    network_mode: host
-```
-* compose安装方式不同启动方式不同老版本`docker-compose up -d`新版本用`docker compose up -d`
 ## 通过浏览器访问
 * ip地址+port:9091  
 
