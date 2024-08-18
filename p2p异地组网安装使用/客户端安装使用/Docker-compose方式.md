@@ -21,6 +21,10 @@ dateCreated: 2024-02-28T07:18:54.677Z
 需要提前安装docker、docker-compose;
 ```bash
 # 执行安装docker
+install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://dow.feishunet.com/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+export DOWNLOAD_URL="https://mirrors.tuna.tsinghua.edu.cn/docker-ce"
 curl -fsSL https://dow.feishunet.com/get-docker.sh -o get-docker.sh
 sh get-docker.sh --mirror Aliyun
 # 下载运行compose以及脚本
