@@ -12,3 +12,5 @@ dateCreated: 2024-06-08T12:59:25.274Z
 本wiki旨在列出有关飞鼠有关项目的部署指南，如有纰漏或建议请联系
 wangbin@xinghuankj.com
 或加入QQ群聊 897237565 飞鼠异地组网获取支持。
+
+![qq:897237565](4e67babf3c3a6e6f1ed4ad2d41871e17.jpeg "qq群扫码加入" =100x200)
