@@ -13,4 +13,4 @@ dateCreated: 2024-06-08T12:59:25.274Z
 wangbin@xinghuankj.com
 或加入QQ群聊 897237565 飞鼠异地组网获取支持。
 
-![qq:897237565](4e67babf3c3a6e6f1ed4ad2d41871e17.jpeg "qq群扫码加入")
+![qq:897237565](QQCODE.jpeg "qq群扫码加入")

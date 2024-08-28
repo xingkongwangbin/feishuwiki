@@ -59,7 +59,7 @@ dateCreated: 2024-08-06T10:07:39.912Z
 安装完成后查询Docker版本
 `docker version`
 返回信息如下
-![paht5q.png](/paht5q.png)
+![paht5q.png](/Saas/paht5q.png)
 确认满足运行条件
 ## 2.2 Compose方式安装
 安装Dokcer-compose
@@ -72,29 +72,29 @@ dateCreated: 2024-08-06T10:07:39.912Z
 系统将会自动部署飞鼠NAT组网节点端。
 等待执行完毕后，进入组网管理界面，
 输入服务器ip:9091
-![pahu9k.png](/pahu9k.png)
+![pahu9k.png](/Saas/pahu9k.png)
 部署成功
 ## 2.3 SaaS平台用户添加
 在浏览器中输入网址 https://www.feishunet.com/
 注册账号后，进入主界面。
 单击右上角 网络创建
 依据自身情况填写相关信息
-![图片1.png](/图片1.png)
-![图片2.png](/图片2.png)
+![图片1.png](/Saas/图片1.png)
+![图片2.png](/Saas/图片2.png)
 添加完成后，进入区域管理添加设备
-![图片3.png](/图片3.png)
+![图片3.png](/Saas/图片3.png)
 可获得识别码（唯一组网标识码），将其粘贴至客户端中，点击连接
-![图片4.png](/图片4.png)
+![图片4.png](/Saas/图片4.png)
 连接成功后，会显示连接设备，此时Linux服务端连接成功。
-![pahuic.png](/pahuic.png)
+![pahuic.png](/Saas/pahuic.png)
 ## 2.4 Windows客户端配置
 返回SaaS平台，重新添加用户，复制密钥。
 在https://dow.feishuwg.com下载Windows客户端
-![图片5.png](/图片5.png)
+![图片5.png](/Saas/图片5.png)
 下载解压后右键以管理员权限运行，在右下角状态栏中右键飞鼠图标打开控制面板。
-![pahyxu.png](/pahyxu.png)
+![pahyxu.png](/Saas/pahyxu.png)
 输入token后连接
-![pahvq9.png](/pahvq9.png)
+![pahvq9.png](/Saas/pahvq9.png)
 等待打洞后解析成功，交互带宽即为实际上传带宽。
 ## 2.5 常见错误处理方法
 类似于输入ip:9091后无法访问的，可能是部署主机存在端口占用情况。
@@ -102,5 +102,5 @@ dateCreated: 2024-08-06T10:07:39.912Z
 `sudo docker ps -a` #查看所有容器
 `sudo docker logs -f p2p-feishu-1` #p2p-feishu-1为输出的实际容器名称
 输出如下
-![pahuuz.png](/pahuuz.png)
+![pahuuz.png](/Saas/pahuuz.png)
 此种情况下，即启用了10066端口。
