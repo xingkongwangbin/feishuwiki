@@ -1,3 +1,13 @@
+---
+title: nas安装使用
+description: 
+published: true
+date: 2024-09-04T07:32:48.664Z
+tags: 
+editor: markdown
+dateCreated: 2024-07-15T16:28:17.537Z
+---
+
 # 群晖
 ## ssh连接到群晖命令行
 ## 一定要管理员账户
@@ -42,9 +52,9 @@ chmod +x st.sh
 sh st.sh
 ```
 
-# 威联通
+# 威联通与铁威马
 ## 创建tun网卡
-**套件安装qvpn**  
+**威联通需套件安装qvpn**  
 **之后按照群晖的docker-compose安装即可**
 
 
