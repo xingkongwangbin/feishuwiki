@@ -1,9 +1,19 @@
+---
+title: Windows方式
+description: 
+published: true
+date: 2024-09-04T07:25:41.560Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-28T07:29:14.155Z
+---
+
 # 下载即可
-`https://dow.feishuwg.com/`
+`https://dow.feishunet.com/`
 
 
 
-[下载win端](https://dow.feishuwg.com/feishup2pclient_win.rar "单击跳转下载")
+[下载win端](https://dow.feishunet.com/feishuInstall.exe "单击跳转下载")
 
 # 使用方法
 
